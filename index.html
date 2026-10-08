@@ -242,13 +242,19 @@
   .scroll-card{
     max-width:400px;margin:0 auto;
   }
-  .scroll-card .frame{padding:0;overflow:hidden;}
+  .scroll-card .frame{
+    padding:0;
+    overflow:hidden;
+    max-height:560px;
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  .scroll-card .frame::-webkit-scrollbar{display:none;}
   .scroll-card .frame img{
     border-radius:0;
-    max-height:560px;
     width:100%;
-    object-fit:cover;
-    object-position:top;
+    height:auto;
   }
   .scroll-hint{
     display:flex;align-items:center;justify-content:center;gap:8px;
@@ -493,7 +499,7 @@
 <!-- ===== Hero ===== -->
 <header class="hero">
   <div class="wrap">
-    <div class="hero-logo"><img src="assets/_logo_preview.jpg" alt="留客王 logo"></div>
+    <div class="hero-logo"><img src="assets/logo.jpg" alt="留客王 logo"></div>
     <div class="eyebrow">会员制回购体系</div>
     <h1>「<span class="brand">留客王</span>」一站式<br>会员运营全案落地系统</h1>
     <p class="sub">从策略到执行，<b>小白也能当专家</b></p>
@@ -766,7 +772,7 @@
       </div>
       <div class="step reveal">
         <div class="no">2</div>
-        <p>点<b>“立即生成”</b>，加顾问微信 <span class="wx">oujing1698</span>，支付 <span class="price"><span class="num">468 元</span>获取解锁密码</span></p>
+        <p>点击<b>“立即生成”</b>，<b>加微信获取解锁密码</b></p>
       </div>
       <div class="step reveal">
         <div class="no">3</div>
@@ -782,13 +788,12 @@
     <p class="slogan reveal">「让你的<b class="hl">头回客</b><br>变成<b class="hl">回头客</b>」</p>
     <p class="sub-slogan reveal"><b>你的同行用了，你的客人就成他的会员了。</b></p>
     <button class="cta-btn reveal" id="ctaBtn">立即体验 · 5 分钟生成方案</button>
-    <p class="hint reveal">加顾问微信 <span class="wx">oujing1698</span> · 备注“留客王” · 支付 468 元解锁</p>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <div class="mark"><img src="assets/_logo_preview.jpg" alt=""></div>
+    <div class="mark"><img src="assets/logo.jpg" alt=""></div>
     湖南长沙留客王智能营销网络公司
   </div>
 </footer>
