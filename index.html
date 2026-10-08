@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>「留客王」一站式会员运营全案落地系统 · 一位实体店老板的真实体验</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 4 54 12v20c0 14-9 24-22 28C19 56 10 46 10 32V12Z' fill='%231D2B4D' stroke='%23C8A24C' stroke-width='3'/%3E%3Cpath d='M22 36h20v5H22zM26 27h12v5H26z' fill='%23C8A24C'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://miaoda.feishu.cn">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@600;700;900&amp;family=Noto+Sans+SC:wght@400;500;700&amp;display=swap">
+<style>
+  :root{
+    --navy:#1D2B4D;
+    --navy-deep:#131E38;
+    --navy-soft:#2C3E63;
+    --gold:#C8A24C;
+    --gold-bright:#D9B45E;
+    --gold-soft:#E9D9AF;
+    --cream:#F7F2E7;
+    --paper:#FFFDF8;
+    --ink:#2C2B28;
+    --ink-soft:#5A564D;
+    --steel:#58688C;
+    --line:rgba(29,43,77,.14);
+    --serif:"Noto Serif SC","Songti SC","SimSun",serif;
+    --sans:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--sans);
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.85;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  .wrap{max-width:640px;margin:0 auto;padding:0 20px;}
+
+  /* ===== Hero ===== */
+  .hero{
+    position:relative;
+    background:
+      radial-gradient(1200px 500px at 50% -10%, rgba(201,162,76,.18), transparent 60%),
+      linear-gradient(160deg,var(--navy-deep) 0%,var(--navy) 55%,#24345C 100%);
+    color:#F3EDDF;
+    padding:52px 0 46px;
+    text-align:center;
+    overflow:hidden;
+  }
+  .hero::before,.hero::after{
+    content:"";position:absolute;border:1px solid rgba(201,162,76,.22);
+    border-radius:50%;pointer-events:none;
+  }
+  .hero::before{width:420px;height:420px;left:-180px;top:-120px;}
+  .hero::after{width:300px;height:300px;right:-140px;bottom:-140px;}
+  .hero-logo{
+    width:112px;height:112px;margin:0 auto 20px;
+    border-radius:50%;
+    background:var(--paper);
+    padding:6px;
+    box-shadow:0 8px 30px rgba(0,0,0,.35), 0 0 0 1px rgba(201,162,76,.5);
+    position:relative;z-index:1;
+  }
+  .hero-logo img{border-radius:50%;width:100%;height:100%;object-fit:cover;}
+  .hero .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:13px;letter-spacing:4px;color:var(--gold-bright);
+    margin-bottom:14px;position:relative;z-index:1;
+  }
+  .hero .eyebrow::before,.hero .eyebrow::after{
+    content:"";width:26px;height:1px;background:linear-gradient(90deg,transparent,var(--gold));
+  }
+  .hero .eyebrow::after{background:linear-gradient(90deg,var(--gold),transparent);}
+  .hero h1{
+    font-family:var(--serif);
+    font-size:clamp(26px,6.4vw,34px);
+    font-weight:900;
+    line-height:1.45;
+    letter-spacing:.5px;
+    position:relative;z-index:1;
+  }
+  .hero h1 .brand{color:var(--gold-bright);}
+  .hero .sub{
+    font-size:clamp(15px,3.9vw,17px);
+    color:#C9CFDE;
+    margin:14px auto 0;
+    position:relative;z-index:1;
+  }
+  .hero .sub b{color:#EFE6CC;font-weight:700;}
+  .hero .note{
+    position:relative;z-index:1;
+    margin:24px auto 0;
+    max-width:520px;
+    background:rgba(255,253,248,.07);
+    border:1px solid rgba(201,162,76,.35);
+    border-radius:14px;
+    padding:14px 18px;
+    font-size:14.5px;
+    color:#DCD6C6;
+    line-height:1.7;
+  }
+  .hero .note svg{vertical-align:-3px;margin-right:6px;}
+
+  /* ===== 信纸式故事区 ===== */
+  .story{padding:46px 0 14px;}
+  .letter-mark{
+    display:flex;align-items:center;gap:12px;
+    color:var(--gold);
+    font-size:13px;letter-spacing:2px;
+    margin-bottom:26px;
+  }
+  .letter-mark::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--gold),transparent);}
+  .story .from{
+    font-family:var(--serif);
+    font-size:18px;font-weight:700;color:var(--navy);
+    margin-bottom:20px;
+  }
+  .story p{margin-bottom:18px;color:var(--ink-soft);}
+  .story .dropcap::first-letter{
+    font-family:var(--serif);
+    font-size:3.2em;font-weight:900;color:var(--gold);
+    float:left;line-height:.92;
+    margin:.06em .12em 0 0;
+  }
+  .story .pain{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-left:4px solid var(--gold);
+    border-radius:12px;
+    padding:16px 18px;
+    margin:22px 0;
+    color:var(--ink);
+  }
+  .story .pain p{margin:0 0 8px;color:var(--ink);}
+  .story .pain p:last-child{margin-bottom:0;}
+  .turn{
+    background:linear-gradient(150deg,var(--navy) 0%,var(--navy-soft) 100%);
+    color:#EFE8D6;
+    border-radius:16px;
+    padding:20px 20px;
+    margin:26px 0;
+    position:relative;
+    box-shadow:0 10px 26px rgba(19,30,56,.25);
+  }
+  .turn .quote-mark{
+    font-family:var(--serif);font-size:42px;line-height:1;
+    color:var(--gold);display:block;margin-bottom:4px;
+  }
+  .turn p{font-size:16px;line-height:1.9;}
+  .turn b{color:var(--gold-bright);}
+  .turn .payoff{
+    display:inline-block;margin-top:12px;
+    font-size:14px;color:#BFB49A;
+    border-top:1px dashed rgba(201,162,76,.45);padding-top:10px;
+  }
+  .lead-in{
+    display:flex;gap:12px;align-items:flex-start;
+    background:var(--paper);border:1px solid var(--line);
+    border-radius:12px;padding:15px 16px;margin:24px 0;
+  }
+  .lead-in .seal{
+    flex:none;width:46px;height:46px;border-radius:50%;
+    background:var(--gold);color:#FFFDF8;
+    display:flex;align-items:center;justify-content:center;
+    font-size:12px;font-weight:700;letter-spacing:1px;
+    transform:rotate(-8deg);
+    font-family:var(--serif);
+  }
+  .lead-in p{margin:0;font-size:15.5px;color:var(--ink);}
+  .lead-in b{color:var(--navy);}
+
+  /* ===== 章节标题 ===== */
+  .sec{padding:44px 0 8px;}
+  .sec-title{
+    display:flex;align-items:center;gap:14px;
+    margin-bottom:8px;
+  }
+  .sec-title .no{
+    flex:none;
+    font-family:var(--serif);
+    font-size:15px;font-weight:700;color:var(--gold);
+    border:1.5px solid var(--gold);border-radius:10px;
+    padding:3px 10px;
+  }
+  .sec-title h2{
+    font-family:var(--serif);
+    font-size:clamp(21px,5.2vw,25px);
+    color:var(--navy);
+    line-height:1.5;
+  }
+  .sec-lead{
+    color:var(--ink-soft);font-size:15.5px;
+    margin-bottom:22px;
+  }
+  .sec-lead b{color:var(--navy);}
+
+  .divider{
+    height:1px;margin:38px auto 0;max-width:640px;
+    background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  }
+
+  /* ===== 图片展示 ===== */
+  .figure{margin:26px 0;}
+  .figure .frame{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:12px;
+    box-shadow:0 10px 30px rgba(29,43,77,.10);
+  }
+  .figure .frame>img{border-radius:12px;width:100%;}
+  .figure .cap{
+    display:flex;align-items:center;gap:8px;
+    margin-top:12px;font-size:13px;color:var(--steel);
+  }
+  .figure .cap::before{
+    content:"";width:5px;height:5px;border-radius:50%;background:var(--gold);flex:none;
+  }
+  /* 手机框 */
+  .phone{
+    max-width:300px;margin:0 auto;
+    background:#0E1424;
+    border:6px solid #26324C;
+    border-radius:34px;
+    padding:10px 8px 14px;
+    box-shadow:0 14px 38px rgba(19,30,56,.35), inset 0 0 0 1px rgba(201,162,76,.35);
+    position:relative;
+  }
+  .phone .notch{
+    width:84px;height:14px;background:#26324C;border-radius:10px;
+    margin:0 auto 8px;
+  }
+  .phone img{border-radius:16px;width:100%;}
+  .phone .screen-label{
+    text-align:center;font-size:11px;color:#9FB0D4;margin-top:8px;letter-spacing:2px;
+  }
+  /* 手册封面立牌 */
+  .doc-card{max-width:340px;margin:0 auto;}
+  .doc-card .frame>img{border-radius:10px;}
+  /* 长图滚动卡 */
+  .scroll-card{
+    max-width:400px;margin:0 auto;
+  }
+  .scroll-card .frame{padding:0;overflow:hidden;}
+  .scroll-card .frame img{
+    border-radius:0;
+    max-height:560px;
+    width:100%;
+    object-fit:cover;
+    object-position:top;
+  }
+  .scroll-hint{
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    font-size:12.5px;color:var(--steel);
+    padding:10px 0 2px;
+  }
+  .scroll-hint svg{animation:hop 1.4s infinite;}
+  @keyframes hop{0%,100%{transform:translateY(0);}50%{transform:translateY(4px);}}
+
+  /* ===== 收益卡片 ===== */
+  .benefit{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:22px 20px 20px;
+    margin:22px 0;
+    position:relative;
+    box-shadow:0 8px 24px rgba(29,43,77,.06);
+  }
+  .benefit .top{
+    display:flex;align-items:center;gap:12px;
+    margin-bottom:6px;
+  }
+  .benefit .badge{
+    flex:none;
+    width:44px;height:44px;border-radius:12px;
+    background:linear-gradient(150deg,var(--navy),var(--navy-soft));
+    color:var(--gold-bright);
+    font-family:var(--serif);font-weight:900;font-size:15px;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:inset 0 0 0 1px rgba(201,162,76,.45);
+  }
+  .benefit h3{
+    font-family:var(--serif);
+    font-size:clamp(18px,4.6vw,20px);
+    color:var(--navy);line-height:1.5;
+  }
+  .benefit .get{
+    font-size:14px;color:var(--steel);
+    margin:8px 0 12px;
+    display:flex;gap:8px;align-items:flex-start;
+  }
+  .benefit .get svg{flex:none;margin-top:4px;}
+  .benefit .get b{color:var(--navy);font-weight:700;}
+  .benefit .detail{
+    font-size:15px;color:var(--ink);
+    background:var(--cream);
+    border-left:3px solid var(--gold);
+    border-radius:0 10px 10px 0;
+    padding:10px 14px;
+    margin-top:14px;
+  }
+  .benefit .detail .num{
+    font-family:var(--serif);font-weight:900;color:var(--gold);
+  }
+  .benefit .wechat{
+    display:flex;align-items:center;gap:10px;
+    background:var(--cream);border:1px dashed var(--gold);
+    border-radius:12px;padding:12px 14px;margin-top:14px;
+    font-size:15px;
+  }
+  .benefit .wechat b{color:var(--navy);}
+  .benefit .wechat .copy-btn{
+    margin-left:auto;flex:none;
+    border:1px solid var(--gold);background:transparent;color:var(--navy);
+    border-radius:8px;padding:10px 14px;font-size:14px;cursor:pointer;
+    font-family:var(--sans);
+    min-height:44px;min-width:44px;
+    display:inline-flex;align-items:center;justify-content:center;
+  }
+  .benefit .wechat .copy-btn:hover{background:var(--gold);color:#FFFDF8;}
+  .quote-line{
+    display:flex;gap:12px;align-items:flex-start;
+    margin-top:14px;
+  }
+  .quote-line .avatar{
+    flex:none;width:38px;height:38px;border-radius:50%;
+    background:var(--navy);color:var(--gold-bright);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--serif);font-weight:700;font-size:13px;
+  }
+  .quote-line .bubble{
+    background:var(--cream);border-radius:4px 14px 14px 14px;
+    padding:10px 14px;font-size:14.5px;color:var(--ink);
+  }
+  .quote-line .bubble b{color:var(--navy);}
+
+  /* ===== 结果区 ===== */
+  .result{
+    background:linear-gradient(160deg,var(--navy-deep) 0%,var(--navy) 60%,#24345C 100%);
+    color:#EFE8D6;
+    margin-top:48px;
+    padding:52px 0 46px;
+    position:relative;overflow:hidden;
+  }
+  .result::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(700px 300px at 50% 0%, rgba(201,162,76,.16), transparent 70%);
+  }
+  .result .wrap{position:relative;z-index:1;text-align:center;}
+  .result .tag{
+    display:inline-block;font-size:12.5px;letter-spacing:3px;color:var(--gold-bright);
+    border:1px solid rgba(201,162,76,.5);border-radius:999px;
+    padding:5px 16px;margin-bottom:22px;
+  }
+  .result .big-nums{
+    display:flex;justify-content:center;gap:14px;margin:10px 0 20px;
+  }
+  .result .big-nums .num-card{
+    flex:1;max-width:180px;
+    background:rgba(255,253,248,.06);
+    border:1px solid rgba(201,162,76,.35);
+    border-radius:16px;padding:20px 10px;
+  }
+  .result .num-card .v{
+    font-family:var(--serif);font-weight:900;
+    font-size:clamp(34px,9vw,46px);line-height:1.1;
+    color:var(--gold-bright);
+  }
+  .result .num-card .k{font-size:13.5px;color:#C9CFDE;margin-top:6px;}
+  .result .story-line{
+    font-size:15.5px;max-width:440px;margin:0 auto 22px;color:#DCD6C6;
+  }
+  .result .dialog{
+    max-width:460px;margin:0 auto;text-align:left;
+    background:rgba(255,253,248,.07);border:1px solid rgba(201,162,76,.3);
+    border-radius:14px;padding:16px 18px;
+  }
+  .result .dialog .q{font-size:14.5px;color:#E8E1CF;margin-bottom:10px;}
+  .result .dialog .a{
+    font-size:15px;color:var(--gold-bright);
+    border-top:1px dashed rgba(201,162,76,.4);padding-top:10px;
+  }
+  .result .dialog .a b{color:#F3EDDF;}
+
+  /* ===== 适合谁 / 怎么用 ===== */
+  .tags{display:flex;flex-wrap:wrap;gap:10px;margin:6px 0 4px;}
+  .tags span{
+    border:1px solid var(--gold);
+    color:var(--navy);
+    background:var(--paper);
+    border-radius:999px;
+    padding:7px 16px;font-size:14.5px;
+  }
+  .steps{margin:10px 0 4px;counter-reset:step;}
+  .step{
+    display:flex;gap:16px;
+    background:var(--paper);border:1px solid var(--line);
+    border-radius:16px;padding:18px 18px;margin-bottom:14px;
+  }
+  .step .no{
+    flex:none;width:38px;height:38px;border-radius:50%;
+    background:var(--navy);color:var(--gold-bright);
+    font-family:var(--serif);font-weight:900;font-size:17px;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:inset 0 0 0 1px rgba(201,162,76,.45);
+  }
+  .step p{margin:0;font-size:15.5px;color:var(--ink);line-height:1.8;}
+  .step p b{color:var(--navy);}
+  .step p .wx{
+    color:var(--gold);font-weight:700;
+    border-bottom:1px dashed var(--gold);
+  }
+  .step .price{
+    display:inline-block;margin-top:6px;
+    font-size:13.5px;color:var(--steel);
+  }
+  .step .price .num{font-family:var(--serif);font-weight:900;color:var(--gold);font-size:15px;}
+
+  /* ===== CTA ===== */
+  .cta{
+    background:linear-gradient(160deg,var(--navy-deep),var(--navy) 65%,#24345C);
+    color:#EFE8D6;text-align:center;
+    padding:52px 0 54px;position:relative;overflow:hidden;
+  }
+  .cta::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(600px 280px at 50% 0%, rgba(201,162,76,.18), transparent 70%);
+  }
+  .cta .wrap{position:relative;z-index:1;}
+  .cta .slogan{
+    font-family:var(--serif);
+    font-size:clamp(22px,6vw,28px);
+    font-weight:900;line-height:1.6;
+  }
+  .cta .slogan .hl{color:var(--gold-bright);}
+  .cta .sub-slogan{font-size:15.5px;color:#C9CFDE;margin:12px 0 28px;}
+  .cta .sub-slogan b{color:#EFE6CC;}
+  .cta-btn{
+    display:inline-block;
+    background:linear-gradient(180deg,var(--gold-bright),var(--gold));
+    color:#1D2B4D;
+    font-family:var(--serif);font-weight:900;font-size:19px;
+    border:none;border-radius:14px;
+    padding:16px 46px;
+    cursor:pointer;
+    box-shadow:0 12px 30px rgba(201,162,76,.35), inset 0 1px 0 rgba(255,255,255,.4);
+    letter-spacing:2px;
+  }
+  .cta-btn:active{transform:translateY(2px);}
+  .cta .hint{font-size:13px;color:#9FB0D4;margin-top:16px;}
+  .cta .hint .wx{color:var(--gold-bright);font-weight:700;}
+
+  footer{
+    text-align:center;padding:26px 0 40px;
+    font-size:13px;color:var(--steel);
+  }
+  footer .mark{
+    width:44px;height:44px;margin:0 auto 10px;opacity:.9;
+  }
+  footer .mark img{border-radius:50%;width:100%;height:100%;object-fit:cover;}
+
+  /* ===== 动效 ===== */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
+  }
+
+  /* ===== Toast ===== */
+  #toast{
+    position:fixed;left:50%;bottom:40px;transform:translateX(-50%) translateY(20px);
+    background:var(--navy);color:#F3EDDF;
+    border:1px solid var(--gold);
+    border-radius:12px;padding:12px 22px;
+    font-size:14.5px;z-index:99;
+    opacity:0;pointer-events:none;
+    transition:opacity .35s ease,transform .35s ease;
+    max-width:86%;text-align:center;
+    box-shadow:0 12px 30px rgba(19,30,56,.35);
+  }
+  #toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+  @media (min-width:720px){
+    body{font-size:17.5px;}
+    .wrap{max-width:680px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== Hero ===== -->
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-logo"><img src="assets/_logo_preview.jpg" alt="留客王 logo"></div>
+    <div class="eyebrow">会员制回购体系</div>
+    <h1>「<span class="brand">留客王</span>」一站式<br>会员运营全案落地系统</h1>
+    <p class="sub">从策略到执行，<b>小白也能当专家</b></p>
+    <div class="note">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+      填 5 分钟门店数据：方案、SOP、评估、心法到实战、圈子抱团全给你，从策略到落地一步到位。
+    </div>
+  </div>
+</header>
+
+<!-- ===== 故事开篇 ===== -->
+<section class="story">
+  <div class="wrap">
+    <div class="letter-mark">一位实体店老板的真实体验记录</div>
+    <p class="from">—— 老王，开了一家社区茶馆，干了 5 年。</p>
+    <p class="dropcap">最头疼的事就是：费力拉新客，来了留不住；老客复购又做不起来。</p>
+    <div class="pain">
+      <p>想做会员运营，自己又不太懂；请人做方案？报价 2 万起，还不一定落地。</p>
+      <p>最后自己琢磨？做了个储值卡，办的人寥寥无几；搞了个积分，根本吸引不了顾客参与。</p>
+    </div>
+    <div class="turn reveal">
+      <span class="quote-mark">“</span>
+      <p>直到朋友推给我一个叫<b>「留客王」</b>的会员运营落地系统。说实话，刚开始我也不信——这能比得上专业顾问？</p>
+      <p>但花 5 分钟填完信息、拿到方案的那一刻，<b>我服了。</b></p>
+      <span class="payoff">下面，是我用这个系统的体会，以及它到底值在哪，原原本本说出来。如果你也是实体店老板，建议认真看完。</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 第一章：它到底是什么 ===== -->
+<section class="sec" id="what">
+  <div class="wrap">
+    <div class="sec-title reveal">
+      <span class="no">壹</span>
+      <h2>它到底是个什么东西？</h2>
+    </div>
+    <p class="sec-lead reveal">没有花里胡哨，一眼就知道能干什么。它<b>不是模板，不是套话</b>——根据门店情况不一样，出来的方案就完全不同。</p>
+    <div class="lead-in reveal">
+      <div class="seal">千人<br>千面</div>
+      <p>我输入的是茶馆数据，隔壁做美容院的李姐输入她的数据，我们俩拿到的方案——<b>储值门槛、折扣力度、积分比例、会员层级，全都不一样</b>。这就是它最值钱的地方：<b>千人千面，数据驱动。</b></p>
+    </div>
+    <div class="figure reveal">
+      <div class="phone">
+        <div class="notch"></div>
+        <img src="assets/图1.jpg" alt="留客王系统首页：5分钟生成会员运营方案" loading="lazy">
+        <div class="screen-label">留客王 · 方案生成首页</div>
+      </div>
+      <div class="cap">填信息 → 选策略 → 下报告，5 分钟一套方案</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== 第二章：8个真实收益 ===== -->
+<section class="sec" id="benefits">
+  <div class="wrap">
+    <div class="sec-title reveal">
+      <span class="no">贰</span>
+      <h2>为什么我愿意为它掏钱？<br>8 个真实收益</h2>
+    </div>
+
+    <article class="benefit reveal">
+      <div class="top">
+        <div class="badge">01</div>
+        <h3>不用请顾问，5 分钟干完 2 万块的活</h3>
+      </div>
+      <div class="get">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8A24C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        <span><b>你得到：</b>填完门店数据，方案自动生成，省掉 1-2 万顾问费，会员运营说干就干。</span>
+      </div>
+      <div class="figure reveal">
+        <div class="doc-card">
+          <div class="frame">
+            <img src="assets/图2.jpg" alt="定制化会员运营方案书封面" loading="lazy">
+          </div>
+        </div>
+        <div class="cap">系统自动生成的《定制化会员运营方案书》</div>
+      </div>
+      <div class="detail">填信息 → 选策略 → 确认 → 生成。每一步都有提示，填错不让你过。<span class="num">4 分 38 秒</span>，一套完整方案到手。</div>
+    </article>
+
+    <article class="benefit reveal">
+      <div class="top">
+        <div class="badge">02</div>
+        <h3>不懂会员运营，它替你决策</h3>
+      </div>
+      <div class="get">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8A24C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        <span><b>你得到：</b>每个策略都有推荐值，选完实时算账，不拍脑袋。</span>
+      </div>
+      <div class="figure reveal">
+        <div class="phone">
+          <div class="notch"></div>
+          <img src="assets/图3.jpg" alt="策略系数实时算账界面：储值与定价" loading="lazy">
+          <div class="screen-label">策略系数 · 实时算账</div>
+        </div>
+        <div class="cap">选完立刻出数，不用拍脑袋</div>
+      </div>
+      <div class="detail">“储值门槛”推荐 5 倍，下面立刻显示：<span class="num">100 元 × 5 = 500 元</span>。“折扣”选 8.5 折，立刻提示：让利 15 个点，未超毛利率一半。</div>
+    </article>
+
+    <article class="benefit reveal">
+      <div class="top">
+        <div class="badge">03</div>
+        <h3>5 分钟生成专属方案</h3>
+      </div>
+      <div class="get">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8A24C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        <span><b>你得到：</b>省掉 1-2 万顾问费，<b>4 分半</b>拿到完整方案。</span>
+      </div>
+      <div class="figure reveal">
+        <div class="phone">
+          <div class="notch"></div>
+          <img src="assets/图4.jpg" alt="门店基础信息填写界面" loading="lazy">
+          <div class="screen-label">第一步 · 填写门店数据</div>
+        </div>
+        <div class="cap">行业、客单价、毛利率，照着填就行</div>
+      </div>
+      <div class="detail">填信息 → 选策略 → 确认 → 生成。每一步都有提示，填错不让你过。</div>
+    </article>
+
+    <article class="benefit reveal">
+      <div class="top">
+        <div class="badge">04</div>
+        <h3>方案直接能用</h3>
+      </div>
+      <div class="get">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8A24C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        <span><b>你得到：</b>方案摘要、客户画像、七要素表、财务测算——<b>拿给店长就能执行</b>。</span>
+      </div>
+      <div class="figure reveal">
+        <div class="doc-card">
+          <div class="frame">
+            <img src="assets/图5.jpg" alt="店长员工落地执行SOP手册封面" loading="lazy">
+          </div>
+        </div>
+        <div class="cap">配套的《店长员工落地执行 SOP 手册》</div>
+      </div>
+      <div class="detail">储值三档、预估转化率、首月新增会员、带动现金流，全部算好。</div>
+    </article>
+
+    <article class="benefit reveal">
+      <div class="top">
+        <div class="badge">05</div>
+        <h3>到手 5 份会员运营文件，保姆级教程</h3>
+      </div>
+      <div class="get">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8A24C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        <span><b>你得到：</b>《方案书》+《SOP 手册》+《评估工具》+《心法秘籍》+《避坑秘籍》，五件套一次给全。</span>
+      </div>
+      <div class="figure reveal">
+        <div class="scroll-card">
+          <div class="frame">
+            <img src="assets/图6.jpg" alt="5份会员运营文件清单：方案、SOP、评估工具、心法、避坑" loading="lazy">
+          </div>
+          <div class="scroll-hint">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#58688C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16m0 0 6-6m-6 6-6-6"/></svg>
+            上下滑动查看 5 份文件
+          </div>
+        </div>
+        <div class="cap">方案书 14 页，SOP 手册 11 页，员工照着做就行</div>
+      </div>
+      <div class="detail">从怎么想、怎么干到怎么防坑，全套给你。</div>
+    </article>
+
+    <article class="benefit reveal">
+      <div class="top">
+        <div class="badge">06</div>
+        <h3>加一个老板圈子</h3>
+      </div>
+      <div class="get">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8A24C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        <span><b>你得到：</b>实体老板交流群 + 专业老师付费咨询，<b>不一个人瞎摸索</b>。</span>
+      </div>
+      <div class="wechat">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1D2B4D" stroke-width="1.8"><path d="M9.5 4C5.9 4 3 6.4 3 9.3c0 1.7 1 3.2 2.5 4.2L4.8 16l2.8-1.5c.6.1 1.3.2 1.9.2"/><path d="M14.5 8c3.6 0 6.5 2.3 6.5 5.2 0 1.6-.9 3.1-2.3 4.1l.6 2.4-2.6-1.4c-.6.1-1.2.2-1.8.2-3.6 0-6.5-2.3-6.5-5.2S10.9 8 14.5 8Z"/></svg>
+        <span>加顾问微信 <b>oujing1698</b>，备注<b>“留客王”</b>进群</span>
+        <button class="copy-btn" data-copy="oujing1698">复制微信号</button>
+      </div>
+    </article>
+
+    <article class="benefit reveal">
+      <div class="top">
+        <div class="badge">07</div>
+        <h3>落地闭环促执行，不让方案吃灰</h3>
+      </div>
+      <div class="get">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8A24C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        <span><b>你得到：</b>方案 → SOP → 评估 → 圈子，四步闭环，还送 <b>30 天启动日历</b>。</span>
+      </div>
+      <div class="figure reveal">
+        <div class="frame">
+          <img src="assets/图7.png" alt="30天启动日历第一周：每日核心动作与验收标准" loading="lazy">
+        </div>
+        <div class="cap">30 天启动日历 · 第一周（D1–D7）</div>
+      </div>
+      <div class="detail">哪天做什么，清清楚楚，照着走就行。</div>
+    </article>
+
+    <article class="benefit reveal">
+      <div class="top">
+        <div class="badge">08</div>
+        <h3>同行降维打击</h3>
+      </div>
+      <div class="get">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8A24C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        <span><b>你得到：</b>别人拍脑袋，你靠数据。储值、折扣、积分<b>全部精准计算</b>。</span>
+      </div>
+      <div class="figure reveal">
+        <div class="phone">
+          <div class="notch"></div>
+          <img src="assets/图8.jpg" alt="客户与产品数据填写界面：客单价、毛利率、核心产品" loading="lazy">
+          <div class="screen-label">第二步 · 客户与产品数据</div>
+        </div>
+        <div class="cap">客单价、毛利率、核心产品，一步步喂给系统</div>
+      </div>
+      <div class="detail">保守 / 标准 / 激进，每档转化率和现金流一目了然。</div>
+    </article>
+  </div>
+</section>
+
+<!-- ===== 结果证明 ===== -->
+<section class="result">
+  <div class="wrap">
+    <div class="tag reveal">老王的实战结果</div>
+    <div class="big-nums reveal">
+      <div class="num-card">
+        <div class="v">47</div>
+        <div class="k">张储值卡 · 一次活动</div>
+      </div>
+      <div class="num-card">
+        <div class="v">≈13万</div>
+        <div class="k">元现金流进账</div>
+      </div>
+    </div>
+    <p class="story-line reveal">我用这套系统设计的会员运营方案，一次活动就办了 47 张储值卡，收了差不多 13 万的现金流。</p>
+    <div class="dialog reveal">
+      <div class="q">隔壁餐厅老板问我：“你咋突然这么会搞？”</div>
+      <div class="a">我跟他只说了一句：<b>自己搞不太明白的事，让专业系统帮你搞定。</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 适合谁 ===== -->
+<section class="sec" id="who">
+  <div class="wrap">
+    <div class="sec-title reveal">
+      <span class="no">适</span>
+      <h2>适合谁</h2>
+    </div>
+    <div class="tags reveal">
+      <span>餐饮</span><span>零售</span><span>美业</span><span>养生</span><span>教培</span><span>健身</span><span>生鲜</span><span>减肥</span>
+    </div>
+    <p class="sec-lead reveal" style="margin-top:16px;">一句话：<b>有回头客生意的实体店</b>，都适用。</p>
+  </div>
+</section>
+
+<!-- ===== 怎么用 ===== -->
+<section class="sec" id="how">
+  <div class="wrap">
+    <div class="sec-title reveal">
+      <span class="no">用</span>
+      <h2>怎么用</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="no">1</div>
+        <p><b>打开页面，填门店数据</b><br><span class="price">行业、客单价、毛利率，5 分钟填完</span></p>
+      </div>
+      <div class="step reveal">
+        <div class="no">2</div>
+        <p>点<b>“立即生成”</b>，加顾问微信 <span class="wx">oujing1698</span>，支付 <span class="price"><span class="num">468 元</span>获取解锁密码</span></p>
+      </div>
+      <div class="step reveal">
+        <div class="no">3</div>
+        <p><b>获得方案、SOP、秘籍，进群抱团</b><br><span class="price">五件套到手，30 天启动日历照着走</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta">
+  <div class="wrap">
+    <p class="slogan reveal">「让你的<b class="hl">头回客</b><br>变成<b class="hl">回头客</b>」</p>
+    <p class="sub-slogan reveal"><b>你的同行用了，你的客人就成他的会员了。</b></p>
+    <button class="cta-btn reveal" id="ctaBtn">立即体验 · 5 分钟生成方案</button>
+    <p class="hint reveal">加顾问微信 <span class="wx">oujing1698</span> · 备注“留客王” · 支付 468 元解锁</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="mark"><img src="assets/_logo_preview.jpg" alt=""></div>
+    湖南长沙留客王智能营销网络公司
+  </div>
+</footer>
+
+<div id="toast" role="status"></div>
+
+<script>
+(function(){
+  // 滚动渐显
+  var els = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    },{threshold:.12, rootMargin:'0px 0px -6% 0px'});
+    els.forEach(function(el){ io.observe(el); });
+  } else {
+    els.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  var toast = document.getElementById('toast');
+  var timer = null;
+  function showToast(msg){
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(timer);
+    timer = setTimeout(function(){ toast.classList.remove('show'); }, 2600);
+  }
+
+  function copyText(txt){
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){
+        showToast('微信号 ' + txt + ' 已复制，去微信添加好友吧');
+      }, function(){ showToast('请手动记下微信号：' + txt); });
+    } else {
+      showToast('请手动记下微信号：' + txt);
+    }
+  }
+
+  document.querySelectorAll('.copy-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      copyText(btn.getAttribute('data-copy'));
+    });
+  });
+
+  document.getElementById('ctaBtn').addEventListener('click', function(){
+    copyText('oujing1698');
+  });
+})();
+</script>
+</body>
+</html>
